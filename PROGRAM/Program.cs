@@ -23,12 +23,12 @@ void PrintArray(string[] arr)
         else System.Console.WriteLine("]");
     }
 }
-string[] NewArray(string[] array,int stringLen)
+string[] NewArray(string[] array,int limitLength)
 {
     int lenArray2 = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i].Length <= stringLen)
+        if (array[i].Length <= limitLength)
         {
             lenArray2++;
         }
@@ -36,7 +36,7 @@ string[] NewArray(string[] array,int stringLen)
     string[] array2 = new string[lenArray2];
     for (int i = 0, j = 0; i < array.Length && j < lenArray2; i++)
     {
-        if (array[i].Length <= stringLen)
+        if (array[i].Length <= limitLength)
         {
             array2[j++] = array[i];
         }
@@ -44,9 +44,9 @@ string[] NewArray(string[] array,int stringLen)
     return array2;
 }
 string[] array = { "123", "157", "-2111 12", "+15111", "computer science" };
-int stringLength=3;
+int limitLength=3;
 System.Console.WriteLine("Исходный массив:");
 PrintArray(array);
-string[] myarray = NewArray(array,stringLength);
-System.Console.WriteLine($"Новый массив из строк, длина которых меньше, либо равна {stringLength} символам:");
+string[] myarray = NewArray(array,limitLength);
+System.Console.WriteLine($"Новый массив из строк, длина которых меньше, либо равна {limitLength} символам:");
 PrintArray(myarray);
